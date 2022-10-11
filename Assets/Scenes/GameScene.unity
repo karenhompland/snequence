@@ -2331,6 +2331,7 @@ MonoBehaviour:
   SnakeTail: {fileID: 3230824195869659608, guid: 71d5800cfd13c4adcb380680e5622bbd, type: 3}
   ScoreObject: {fileID: 1146805595}
   SequenceObject: {fileID: 1135003579}
+  HeartObject: {fileID: 1135003579}
 --- !u!54 &754978421
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3249,6 +3250,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7777313272111463443, guid: 4e79f18d051714609b3f2d986c36cffe, type: 3}
   m_PrefabInstance: {fileID: 7777313273141312424}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1135003580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135003579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 155628c145ce8475085cf7a3a983d184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Heart: {fileID: 5808559844191106465, guid: 1f5a0a8a3777340159b60a8080e0164d, type: 3}
+  GrayMaterial: {fileID: 2100000, guid: ad6e9e97c1c6a474dbf6d744b3ca84f4, type: 2}
+  PinkMaterial: {fileID: 2100000, guid: 00228c47e29e54ea39dc5b4b1e629c06, type: 2}
 --- !u!1 &1146805595
 GameObject:
   m_ObjectHideFlags: 0
@@ -5884,11 +5900,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8761870873599106126, guid: 26d758d847f014776a0066df1fbe2aa4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 15.171588
+      value: 14.237881
       objectReference: {fileID: 0}
     - target: {fileID: 8761870873599106126, guid: 26d758d847f014776a0066df1fbe2aa4, type: 3}
       propertyPath: m_LocalScale.z
-      value: 30.548887
+      value: 29.785776
       objectReference: {fileID: 0}
     - target: {fileID: 8761870873599106126, guid: 26d758d847f014776a0066df1fbe2aa4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6031,5 +6047,9 @@ PrefabInstance:
       propertyPath: YellowMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 228a7d337554147358ca5dee1e228602, type: 2}
+    - target: {fileID: 7777313273357814813, guid: 4e79f18d051714609b3f2d986c36cffe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 74f9bf5f0191d4e66bc38277943593f0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e79f18d051714609b3f2d986c36cffe, type: 3}
