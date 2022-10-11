@@ -23,6 +23,9 @@ public class SnakeController : MonoBehaviour
     public GameObject SequenceObject;
     private SequenceController sequenceController;
 
+    public GameObject HeartObject;
+    private HeartController heartController;
+
     private bool BodyTimeOut=false;
     private int BodyTimeOutCounter;
    
@@ -32,6 +35,7 @@ public class SnakeController : MonoBehaviour
         currentSpeed = MoveSpeed;
         scoreController=ScoreObject.GetComponent<ScoreController>();
         sequenceController=SequenceObject.GetComponent<SequenceController>();
+        heartController=HeartObject.GetComponent<HeartController>();
         ResetState();
         
     }
@@ -135,6 +139,7 @@ public class SnakeController : MonoBehaviour
             }
             else {
                 extraLives--;
+                heartController.removeHeart();
             }
             Destroy(other.gameObject);
         }
@@ -192,7 +197,10 @@ public class SnakeController : MonoBehaviour
     }
 
     public void ExtraLife() {
-        extraLives+=1;
+        if (extraLives<3){
+            extraLives+=1;
+            heartController.addHeart();
+        }
         //TODO vise antall hjerter på skjermen
     }
 
