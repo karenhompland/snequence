@@ -2325,9 +2325,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 8
   SteerSpeed: 180
-  Gap: 8
+  Gap: 5
   initialSize: 0
-  SeeThroughMaterial: {fileID: 0}
   BodyPrefab: {fileID: 5032415365332474176, guid: 916c5561afb2a4f7790d6fac36bb2946, type: 3}
   SnakeTail: {fileID: 3230824195869659608, guid: 71d5800cfd13c4adcb380680e5622bbd, type: 3}
   ScoreObject: {fileID: 1146805595}
@@ -2358,10 +2357,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.84633607
-  m_Height: 2.2783186
-  m_Direction: 1
-  m_Center: {x: -0.122605756, y: 0.03164331, z: 0.78155774}
+  m_Radius: 0.39714047
+  m_Height: 1.9780021
+  m_Direction: 0
+  m_Center: {x: -0.015110671, y: 0, z: 1.706016}
 --- !u!114 &754978424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5805,7 +5804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7515069025742856351, guid: 73d780516876848278a22578016a292d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0743346
+      value: 1.14
       objectReference: {fileID: 0}
     - target: {fileID: 7515069025742856351, guid: 73d780516876848278a22578016a292d, type: 3}
       propertyPath: m_LocalPosition.z
