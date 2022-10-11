@@ -23,6 +23,9 @@ public class SnakeController : MonoBehaviour
     public GameObject SequenceObject;
     private SequenceController sequenceController;
 
+    public GameObject HeartObject;
+    private HeartController heartController;
+
     private bool BodyTimeOut=false;
     private int BodyTimeOutCounter;
    
@@ -32,6 +35,7 @@ public class SnakeController : MonoBehaviour
         currentSpeed = MoveSpeed;
         scoreController=ScoreObject.GetComponent<ScoreController>();
         sequenceController=SequenceObject.GetComponent<SequenceController>();
+        heartController=HeartObject.GetComponent<HeartController>();
         ResetState();
         
     }
@@ -101,7 +105,8 @@ public class SnakeController : MonoBehaviour
             Vector3 point = PositionHistory[Mathf.Min(index*Gap, PositionHistory.Count-1)];
             Vector3 moveDirection = point - body.transform.position;
             body.transform.position += moveDirection * currentSpeed * Time.deltaTime;
-            body.transform.LookAt(point);
+            body.transform.LookAt(point); //point
+            body.transform.Rotate(new Vector3(180,0,0));
             index++;
         }
         if (BodyTimeOut) {
@@ -135,6 +140,7 @@ public class SnakeController : MonoBehaviour
             }
             else {
                 extraLives--;
+                heartController.removeHeart();
             }
             Destroy(other.gameObject);
         }
@@ -145,7 +151,7 @@ public class SnakeController : MonoBehaviour
         BodyTimeOutCounter=25;
         GameObject body = Instantiate(BodyPrefab);
         body.GetComponent<MeshRenderer>().material = color;
-        BodyParts.Insert(BodyParts.Count-1,body);
+        BodyParts.Insert(0,body);
     }
 
     private void ControlBodyTimeOut() {
@@ -159,7 +165,6 @@ public class SnakeController : MonoBehaviour
     private void AddTail(){
         GameObject tail = Instantiate(SnakeTail);
         tail.transform.localScale = new Vector3(40,40,40);
-        tail.transform.rotation = Quaternion.Euler(0, 90, 0);
         BodyParts.Add(tail);
     }
 
@@ -192,7 +197,10 @@ public class SnakeController : MonoBehaviour
     }
 
     public void ExtraLife() {
-        extraLives+=1;
+        if (extraLives<3){
+            extraLives+=1;
+            heartController.addHeart();
+        }
         //TODO vise antall hjerter på skjermen
     }
 
