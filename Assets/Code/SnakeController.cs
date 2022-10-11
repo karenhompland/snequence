@@ -145,7 +145,7 @@ public class SnakeController : MonoBehaviour
         BodyTimeOutCounter=25;
         GameObject body = Instantiate(BodyPrefab);
         body.GetComponent<MeshRenderer>().material = color;
-        BodyParts.Insert(BodyParts.Count-1,body);
+        BodyParts.Insert(0,body);
     }
 
     private void ControlBodyTimeOut() {
