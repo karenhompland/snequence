@@ -101,7 +101,8 @@ public class SnakeController : MonoBehaviour
             Vector3 point = PositionHistory[Mathf.Min(index*Gap, PositionHistory.Count-1)];
             Vector3 moveDirection = point - body.transform.position;
             body.transform.position += moveDirection * currentSpeed * Time.deltaTime;
-            body.transform.LookAt(point);
+            body.transform.LookAt(point); //point
+            body.transform.Rotate(new Vector3(180,0,0));
             index++;
         }
         if (BodyTimeOut) {
@@ -159,7 +160,6 @@ public class SnakeController : MonoBehaviour
     private void AddTail(){
         GameObject tail = Instantiate(SnakeTail);
         tail.transform.localScale = new Vector3(40,40,40);
-        tail.transform.rotation = Quaternion.Euler(0, 90, 0);
         BodyParts.Add(tail);
     }
 
