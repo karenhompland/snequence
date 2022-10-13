@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17277317, g: 0.21589825, b: 0.29783264, a: 1}
+  m_IndirectSpecularColor: {r: 0.17277342, g: 0.21589848, b: 0.29783285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5879,6 +5879,10 @@ PrefabInstance:
       propertyPath: gridArea
       value: 
       objectReference: {fileID: 1815940493}
+    - target: {fileID: 5036319231251477851, guid: 4e79f18d051714609b3f2d986c36cffe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5036319231367298177, guid: 4e79f18d051714609b3f2d986c36cffe, type: 3}
       propertyPath: m_Name
       value: Floor
