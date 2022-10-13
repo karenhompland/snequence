@@ -76,6 +76,7 @@ public class InitiateBoard : MonoBehaviour
     private void initiateBombs(){
         for (int i = 0; i < initialBomb; i++) {
             newBomb();
+
        }
 
     }
@@ -112,6 +113,7 @@ public class InitiateBoard : MonoBehaviour
     private void newBomb(){
         Vector3 position = placeObject();
         GameObject bomb = Instantiate(Bomb);
+        bomb.transform.Rotate(0,0,-40);
         bomb.transform.position = position;
 
     }

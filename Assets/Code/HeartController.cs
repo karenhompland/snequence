@@ -29,7 +29,7 @@ public class HeartController : MonoBehaviour
         
         for (int i = 0; i<3 ; i++) {
             GameObject heart = new GameObject();  
-            int gap = 8 - i*3;
+            int gap =16 - i*2;
             heart = Instantiate(Heart);
             heart.GetComponent<MeshRenderer> ().material = GrayMaterial;
             heart.transform.position= new Vector3(12,0,gap);
