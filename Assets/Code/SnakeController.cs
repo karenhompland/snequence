@@ -26,6 +26,8 @@ public class SnakeController : MonoBehaviour
     public GameObject HeartObject;
     private HeartController heartController;
 
+    public GameObject SoundEffects;
+    private SoundEffects soundEffectsController;
     public GameObject GameOverController;
     private GameOverController gameOverController;
 
@@ -39,6 +41,7 @@ public class SnakeController : MonoBehaviour
         scoreController=ScoreObject.GetComponent<ScoreController>();
         sequenceController=SequenceObject.GetComponent<SequenceController>();
         heartController=HeartObject.GetComponent<HeartController>();
+        soundEffectsController=SoundEffects.GetComponent<SoundEffects>();
         gameOverController = GameOverController.GetComponent<GameOverController>();
         ResetState();
         
@@ -124,30 +127,38 @@ public class SnakeController : MonoBehaviour
             GrowSnake(material);
             if (material.name == sequenceController.GetNextSequenceObjectColor().name){
                 sequenceController.SetProgress();
+        
             }
             else{
                 sequenceController.ResetProgress();
+                
             }
             scoreController.UpdateScore(10);
+            soundEffectsController.PlayEat();
+            
         }
         if (other.tag == "Obstacle"){
             Debug.Log("Obstacle reset");
             ResetState();
+            soundEffectsController.PlayGameOver();
             gameOverController.GameOver();
         }
         if (other.tag == "Body" && !BodyTimeOut){
             Debug.Log("Body reset");
             ResetState();
+            soundEffectsController.PlayGameOver();
             gameOverController.GameOver();
         }
         if (other.tag == "Bomb") {
             if(extraLives==0){
                 ResetState();
+                soundEffectsController.PlayGameOver();
                 gameOverController.GameOver();
             }
             else {
                 extraLives--;
                 heartController.removeHeart();
+                soundEffectsController.PlayRemoveHeart();
             }
             Destroy(other.gameObject);
         }
@@ -155,7 +166,7 @@ public class SnakeController : MonoBehaviour
 
     private void GrowSnake(Material color) {
         BodyTimeOut=true;
-        BodyTimeOutCounter=25;
+        BodyTimeOutCounter=50;
         GameObject body = Instantiate(BodyPrefab);
         body.GetComponent<MeshRenderer>().material = color;
         BodyParts.Insert(0,body);
@@ -207,8 +218,9 @@ public class SnakeController : MonoBehaviour
         if (extraLives<3){
             extraLives+=1;
             heartController.addHeart();
+            soundEffectsController.PlayAddHeart();
         }
-        //TODO vise antall hjerter på skjermen
+        
     }
 
     public void StarModeOn(){

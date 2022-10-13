@@ -5,7 +5,7 @@ using UnityEngine;
 public class PowerUpsController : MonoBehaviour
 {
     public int ExtraTime=10;
-    public int PowerUpDuration=20;
+    public int PowerUpDuration=150;
 
     public GameObject SequenceObject;
     private SequenceController sequenceController;
@@ -15,6 +15,9 @@ public class PowerUpsController : MonoBehaviour
 
     public GameObject ScoreObject;
     private ScoreController scoreController;
+    
+    public GameObject SoundEffects;
+    private SoundEffects soundEffectsController;
 
     private int slowerTimer=0;
     private int fasterTimer=0;
@@ -33,7 +36,7 @@ public class PowerUpsController : MonoBehaviour
         sequenceController=SequenceObject.GetComponent<SequenceController>();
         snakeController=SnakeObject.GetComponent<SnakeController>();
         scoreController=ScoreObject.GetComponent<ScoreController>();
-        
+        soundEffectsController=SoundEffects.GetComponent<SoundEffects>();
     }
 
     //TODO: show timer for all powerups
@@ -81,18 +84,21 @@ public class PowerUpsController : MonoBehaviour
         if (other.tag == "ExtraTime") {
             Destroy(other.gameObject);
             sequenceController.AddTime(ExtraTime);
+            soundEffectsController.PlayPowerUp();
         }
         if (other.tag == "Slower"){
             Destroy(other.gameObject);
             snakeController.SlowerSnake();
             slowerTimer+=PowerUpDuration;
             slowerHasReset=false;
+            soundEffectsController.PlayPowerUp();
         }
         if (other.tag == "Faster") {
             Destroy(other.gameObject);
             snakeController.FasterSnake();
             fasterTimer+=PowerUpDuration;
             fasterHasReset=false;
+            soundEffectsController.PlayPowerUp();
         }
         if (other.tag == "Heart") {
             Destroy(other.gameObject);
@@ -109,6 +115,7 @@ public class PowerUpsController : MonoBehaviour
             scoreController.DoubleScore();
             doublePointsTimer+=PowerUpDuration;
             doublePointsHasReset=false;
+            soundEffectsController.PlayPowerUp();
         }
     }
 }

@@ -29,6 +29,9 @@ public class SequenceController : MonoBehaviour
     public GameObject ScoreObject;
     private ScoreController scoreController;
 
+    public GameObject SoundEffects;
+    private SoundEffects soundEffectsController;
+
     public int SequenceLength = 5;
 
     public int SetDuration;
@@ -48,6 +51,7 @@ public class SequenceController : MonoBehaviour
     {
         progress=0;
         scoreController=ScoreObject.GetComponent<ScoreController>();
+        soundEffectsController=SoundEffects.GetComponent<SoundEffects>();
         Duration=SetDuration;
         Being(Duration);
         NewSequence();
@@ -56,7 +60,8 @@ public class SequenceController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
+
     }
 
     public Material GetNextSequenceObjectColor(){
@@ -108,6 +113,8 @@ public class SequenceController : MonoBehaviour
             }
         }
         progress=0;
+
+        
     }
 
     private void NewSequence() {
@@ -135,7 +142,7 @@ public class SequenceController : MonoBehaviour
             else if(nextBall==5){
                  ball = Instantiate(BlueBall);                 
             }
-            int gap = -i*2;
+            int gap = 4 -i*2;
             ball.transform.localScale+= new Vector3(50,50,50);
             ball.transform.position= new Vector3(12,0,gap);
             SequenceObjects.Add(ball);
@@ -154,6 +161,10 @@ public class SequenceController : MonoBehaviour
 
     private IEnumerator UpdateTimer() {
         while(RemainingDuration >= 0){
+            if (RemainingDuration == 5) {
+                soundEffectsController.PlayTimeRunningOut();
+                // rød tekst
+            }
             uiText.text = $"{RemainingDuration}";
             uiFill.fillAmount = Mathf.InverseLerp(0,Duration,RemainingDuration);
             RemainingDuration--;
@@ -164,12 +175,14 @@ public class SequenceController : MonoBehaviour
     }
 
     private void OnTimeEnd(){
-        //game over
+        soundEffectsController.PlayGameOver();
+        //Lyd
     }
 
     private void FinishedSequence(){
         scoreController.UpdateScore(100);
         NewSequence();
+        soundEffectsController.PlaySequenzeComplete();
         Duration=SetDuration;
     }
 
