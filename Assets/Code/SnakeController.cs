@@ -28,6 +28,8 @@ public class SnakeController : MonoBehaviour
 
     public GameObject SoundEffects;
     private SoundEffects soundEffectsController;
+    public GameObject GameOverController;
+    private GameOverController gameOverController;
 
     private bool BodyTimeOut=false;
     private int BodyTimeOutCounter;
@@ -40,6 +42,7 @@ public class SnakeController : MonoBehaviour
         sequenceController=SequenceObject.GetComponent<SequenceController>();
         heartController=HeartObject.GetComponent<HeartController>();
         soundEffectsController=SoundEffects.GetComponent<SoundEffects>();
+        gameOverController = GameOverController.GetComponent<GameOverController>();
         ResetState();
         
     }
@@ -138,16 +141,19 @@ public class SnakeController : MonoBehaviour
             Debug.Log("Obstacle reset");
             ResetState();
             soundEffectsController.PlayGameOver();
+            gameOverController.GameOver();
         }
         if (other.tag == "Body" && !BodyTimeOut){
             Debug.Log("Body reset");
             ResetState();
             soundEffectsController.PlayGameOver();
+            gameOverController.GameOver();
         }
         if (other.tag == "Bomb") {
             if(extraLives==0){
                 ResetState();
                 soundEffectsController.PlayGameOver();
+                gameOverController.GameOver();
             }
             else {
                 extraLives--;
