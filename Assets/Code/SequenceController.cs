@@ -14,17 +14,18 @@ public class SequenceController : MonoBehaviour
     public GameObject PurpleBall;
     public GameObject BlueBall;
 
-    public Material OrangeChecked;
-    public Material YellowChecked;
-    public Material PinkChecked;
-    public Material PurpleChecked;
-    public Material BlueChecked;
+    // public Material OrangeChecked;
+    // public Material YellowChecked;
+    // public Material PinkChecked;
+    // public Material PurpleChecked;
+    // public Material BlueChecked;
 
     public Material Orange;
     public Material Yellow;
     public Material Pink;
     public Material Purple;
     public Material Blue;
+    public Material Grey;
 
     public GameObject ScoreObject;
     private ScoreController scoreController;
@@ -69,21 +70,7 @@ public class SequenceController : MonoBehaviour
     }
 
     public void SetProgress(){
-        if(Sequence[progress]==1){
-            SequenceObjects[progress].GetComponent<MeshRenderer>().material=OrangeChecked;
-        }
-        else if(Sequence[progress]==2){
-            SequenceObjects[progress].GetComponent<MeshRenderer>().material=YellowChecked;       
-        }
-        else if(Sequence[progress]==3){
-            SequenceObjects[progress].GetComponent<MeshRenderer>().material=PinkChecked;           
-        }
-        else if(Sequence[progress]==4){
-            SequenceObjects[progress].GetComponent<MeshRenderer>().material=PurpleChecked;                
-        }
-        else if(Sequence[progress]==5){
-            SequenceObjects[progress].GetComponent<MeshRenderer>().material=BlueChecked;              
-        }
+        SequenceObjects[progress].GetComponent<MeshRenderer>().material=Grey;
         if (progress==Sequence.Count-1){
             FinishedSequence();
         }
