@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17277317, g: 0.21589825, b: 0.29783264, a: 1}
+  m_IndirectSpecularColor: {r: 0.17277342, g: 0.21589848, b: 0.29783285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2332,6 +2332,7 @@ MonoBehaviour:
   ScoreObject: {fileID: 1146805595}
   SequenceObject: {fileID: 1135003579}
   HeartObject: {fileID: 1135003579}
+  GameOverController: {fileID: 1135003579}
 --- !u!54 &754978421
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2379,6 +2380,18 @@ MonoBehaviour:
   SequenceObject: {fileID: 1135003579}
   SnakeObject: {fileID: 754978419}
   ScoreObject: {fileID: 1146805595}
+--- !u!114 &754978425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754978419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30bc09a20839548f5aa4c2caa29fc717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &755039521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3250,6 +3263,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5036319231367298177, guid: 4e79f18d051714609b3f2d986c36cffe, type: 3}
   m_PrefabInstance: {fileID: 5036319230320671546}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1135003580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135003579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30bc09a20839548f5aa4c2caa29fc717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1146805595
 GameObject:
   m_ObjectHideFlags: 0
@@ -5879,6 +5904,10 @@ PrefabInstance:
       propertyPath: gridArea
       value: 
       objectReference: {fileID: 1815940493}
+    - target: {fileID: 5036319231251477851, guid: 4e79f18d051714609b3f2d986c36cffe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5036319231367298177, guid: 4e79f18d051714609b3f2d986c36cffe, type: 3}
       propertyPath: m_Name
       value: Floor
