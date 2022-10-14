@@ -127,7 +127,6 @@ public class SnakeController : MonoBehaviour
             GrowSnake(material);
             if (material.name == sequenceController.GetNextSequenceObjectColor().name){
                 sequenceController.SetProgress();
-        
             }
             else{
                 sequenceController.ResetProgress();
