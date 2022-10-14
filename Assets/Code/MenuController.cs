@@ -17,4 +17,8 @@ public class MenuController : MonoBehaviour
     public void BackToMenu(){
         SceneManager.LoadScene(0);
     }
+
+    public void ChangeToPowerUpScreen(){
+       SceneManager.LoadScene(4); 
+    }
 }
