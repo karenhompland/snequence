@@ -14,12 +14,6 @@ public class SequenceController : MonoBehaviour
     public GameObject PurpleBall;
     public GameObject BlueBall;
 
-    // public Material OrangeChecked;
-    // public Material YellowChecked;
-    // public Material PinkChecked;
-    // public Material PurpleChecked;
-    // public Material BlueChecked;
-
     public Material Orange;
     public Material Yellow;
     public Material Pink;
@@ -33,7 +27,7 @@ public class SequenceController : MonoBehaviour
     public GameObject SoundEffects;
     private SoundEffects soundEffectsController;
 
-    public int SequenceLength = 5;
+    public int SequenceLength = 3;
 
     public int SetDuration;
     private int RemainingDuration;
@@ -65,6 +59,10 @@ public class SequenceController : MonoBehaviour
 
     }
 
+    public int GetNextSequenceObjectIndex(){
+        return this.Sequence[progress];
+    }
+
     public Material GetNextSequenceObjectColor(){
         return this.SequenceObjects[progress].GetComponent<MeshRenderer>().material;
     }
@@ -73,6 +71,7 @@ public class SequenceController : MonoBehaviour
         SequenceObjects[progress].GetComponent<MeshRenderer>().material=Grey;
         if (progress==Sequence.Count-1){
             FinishedSequence();
+            progress=0;
         }
         else {
             progress++;
@@ -82,19 +81,19 @@ public class SequenceController : MonoBehaviour
     public void ResetProgress() {
         if(progress!=0){
             for (int i=0; i<Sequence.Count ; i++){
-                if(Sequence[i]==1){
+                if(Sequence[i]==0){
                     SequenceObjects[i].GetComponent<MeshRenderer>().material=Orange;
                 }
-                else if(Sequence[i]==2){
+                else if(Sequence[i]==1){
                     SequenceObjects[i].GetComponent<MeshRenderer>().material=Yellow;       
                 }
-                else if(Sequence[i]==3){
+                else if(Sequence[i]==2){
                     SequenceObjects[i].GetComponent<MeshRenderer>().material=Pink;           
                 }
-                else if(Sequence[i]==4){
+                else if(Sequence[i]==3){
                     SequenceObjects[i].GetComponent<MeshRenderer>().material=Purple;                
                 }
-                else if(Sequence[i]==5){
+                else if(Sequence[i]==4){
                     SequenceObjects[i].GetComponent<MeshRenderer>().material=Blue;              
                 }
             }
@@ -111,22 +110,22 @@ public class SequenceController : MonoBehaviour
         Sequence.Clear();
         SequenceObjects.Clear();
         for (int i=0 ; i<SequenceLength ; i++) {
-            int nextBall = Rnd.Next(1, 6);
+            int nextBall = Rnd.Next(0, 5);
             Sequence.Add(nextBall);
             GameObject ball = new GameObject();  
-            if(nextBall==1){
+            if(nextBall==0){
                  ball = Instantiate(OrangeBall);
             }
-            else if(nextBall==2){
+            else if(nextBall==1){
                  ball = Instantiate(YellowBall);            
             }
-            else if(nextBall==3){
+            else if(nextBall==2){
                  ball = Instantiate(PinkBall);                
             }
-            else if(nextBall==4){
+            else if(nextBall==3){
                  ball = Instantiate(PurpleBall);                
             }
-            else if(nextBall==5){
+            else if(nextBall==4){
                  ball = Instantiate(BlueBall);                 
             }
             int gap = 4 -i*2;
@@ -148,7 +147,7 @@ public class SequenceController : MonoBehaviour
 
     private IEnumerator UpdateTimer() {
         while(RemainingDuration >= 0){
-            if (RemainingDuration == 5) {
+            if (RemainingDuration == 3) {
                 soundEffectsController.PlayTimeRunningOut();
                 // rød tekst
             }

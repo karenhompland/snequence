@@ -2372,7 +2372,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 89.116, y: -30, z: 0}
 --- !u!1 &706375045 stripped
 GameObject:
@@ -2505,10 +2505,10 @@ MonoBehaviour:
   BodyPrefab: {fileID: 5032415365332474176, guid: 916c5561afb2a4f7790d6fac36bb2946, type: 3}
   SnakeTail: {fileID: 3230824195869659608, guid: 71d5800cfd13c4adcb380680e5622bbd, type: 3}
   ScoreObject: {fileID: 1146805595}
-  SequenceObject: {fileID: 0}
-  HeartObject: {fileID: 0}
+  SequenceObject: {fileID: 948261655}
+  HeartObject: {fileID: 533149652}
   SoundEffects: {fileID: 1821762798}
-  GameOverController: {fileID: 0}
+  GameOverController: {fileID: 1455009353}
 --- !u!54 &754978421
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2539,7 +2539,7 @@ CapsuleCollider:
   m_Height: 1.9780021
   m_Direction: 0
   m_Center: {x: -0.015110671, y: 0, z: 1.706016}
---- !u!114 &754978424
+--- !u!114 &754978427
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2552,23 +2552,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExtraTime: 10
-  PowerUpDuration: 100
-  SequenceObject: {fileID: 0}
+  PowerUpDuration: 150
+  SequenceObject: {fileID: 948261655}
   SnakeObject: {fileID: 754978419}
   ScoreObject: {fileID: 1146805595}
   SoundEffects: {fileID: 1821762798}
---- !u!114 &754978425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754978419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30bc09a20839548f5aa4c2caa29fc717, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &755039521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3295,7 +3283,7 @@ MonoBehaviour:
   Grey: {fileID: 2100000, guid: ad6e9e97c1c6a474dbf6d744b3ca84f4, type: 2}
   ScoreObject: {fileID: 1146805595}
   SoundEffects: {fileID: 1821762798}
-  SequenceLength: 5
+  SequenceLength: 2
   SetDuration: 20
   uiFill: {fileID: 2054890602}
   uiText: {fileID: 197914265}
@@ -3600,7 +3588,7 @@ RectTransform:
   - {fileID: 1702521213}
   - {fileID: 1146805596}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3916,7 +3904,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 223, y: 157}
+  m_AnchoredPosition: {x: 281, y: 182}
   m_SizeDelta: {x: 117.6229, y: 46.7165}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1146805597
@@ -4842,6 +4830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30bc09a20839548f5aa4c2caa29fc717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SoundEffects: {fileID: 1821762798}
 --- !u!1 &1527066980 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cd856871f285a49c482b4af374f7a779, type: 3}
@@ -5534,7 +5523,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 207, y: 161}
+  m_AnchoredPosition: {x: 263, y: 185}
   m_SizeDelta: {x: -314, y: 82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1702521215
@@ -5651,6 +5640,7 @@ MonoBehaviour:
   powerUpsInterval: 7
   bombInterval: 15
   minDistanceGameObject: 3
+  SequenceObject: {fileID: 948261655}
 --- !u!65 &1744106641
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5723,7 +5713,7 @@ Transform:
   m_GameObject: {fileID: 1744106639}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2, y: -1, z: -0.2}
-  m_LocalScale: {x: 25, y: 1, z: 38.000008}
+  m_LocalScale: {x: 25, y: 1, z: 39}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -7326,7 +7316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7515069025742856351, guid: 73d780516876848278a22578016a292d, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7515069025742856351, guid: 73d780516876848278a22578016a292d, type: 3}
       propertyPath: m_LocalScale.x
@@ -7418,7 +7408,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8959413693841315145, guid: 26d758d847f014776a0066df1fbe2aa4, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8959413693841315145, guid: 26d758d847f014776a0066df1fbe2aa4, type: 3}
       propertyPath: m_LocalPosition.x
