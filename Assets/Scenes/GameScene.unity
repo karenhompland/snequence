@@ -7399,8 +7399,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.2
   m_Center: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!1001 &5036319230320671546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7494,7 +7492,6 @@ PrefabInstance:
       objectReference: {fileID: 1821762798}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e79f18d051714609b3f2d986c36cffe, type: 3}
->>>>>>> 3f12039ae14ceb3cb239354f244462315929311b
 --- !u!1001 &8959413695383050439
 PrefabInstance:
   m_ObjectHideFlags: 0
