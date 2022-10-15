@@ -33,7 +33,10 @@ public class SnakeController : MonoBehaviour
 
     private bool BodyTimeOut=false;
     private int BodyTimeOutCounter;
-   
+
+    public GameObject Swipe;
+    private Swipe swipeController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,8 +46,8 @@ public class SnakeController : MonoBehaviour
         heartController=HeartObject.GetComponent<HeartController>();
         soundEffectsController=SoundEffects.GetComponent<SoundEffects>();
         gameOverController = GameOverController.GetComponent<GameOverController>();
+        swipeController = Swipe.GetComponent<Swipe>();
         ResetState();
-        
     }
 
     // Update is called once per frame
@@ -54,54 +57,49 @@ public class SnakeController : MonoBehaviour
 
         PositionHistory.Insert(0,transform.position);
 
-
+        string swipeDirection = swipeController.OnSwipe();
 
         float steerDirection = Input.GetAxis("Horizontal");
 
+        // Snake is going right
         if (transform.rotation.eulerAngles.y == 0){
-            if (Input.GetKeyDown(KeyCode.DownArrow)) {
+            if (swipeDirection == "down") {
                 transform.eulerAngles = new Vector3(0,270,0);
-
             }
-            else if (Input.GetKeyDown(KeyCode.UpArrow)) {
+            else if (swipeDirection == "up") {
                  transform.eulerAngles = new Vector3(0,90,0);
-
             }
-
         }
 
+        // Snake is going left
         if (transform.rotation.eulerAngles.y == 180){
-            if (Input.GetKeyDown(KeyCode.DownArrow)) {
+            if (swipeDirection == "down") {
                 transform.eulerAngles = new Vector3(0,270,0);
-
             }
-            else if (Input.GetKeyDown(KeyCode.UpArrow)) {
+            else if (swipeDirection == "up") {
                  transform.eulerAngles = new Vector3(0,90,0);
-
             }
 
         }
 
+        // Snake is going up
         if (transform.rotation.eulerAngles.y == 90){
-            if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+            if (swipeDirection == "left") {
                 transform.eulerAngles = new Vector3(0,0,0);
-
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow)) {
+            else if (swipeDirection=="right") {
                  transform.eulerAngles = new Vector3(0,180,0);
-
             }
 
         }
 
+        // Snake is going down
         if (transform.rotation.eulerAngles.y == 270){
-            if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+            if (swipeDirection == "left") {
                 transform.eulerAngles = new Vector3(0,0,0);
-
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow)) {
+            else if (swipeDirection=="right") {
                  transform.eulerAngles = new Vector3(0,180,0);
-
             }
 
         }
@@ -137,13 +135,11 @@ public class SnakeController : MonoBehaviour
             
         }
         if (other.tag == "Obstacle"){
-            Debug.Log("Obstacle reset");
             ResetState();
             soundEffectsController.PlayGameOver();
             gameOverController.GameOver();
         }
         if (other.tag == "Body" && !BodyTimeOut){
-            Debug.Log("Body reset");
             ResetState();
             soundEffectsController.PlayGameOver();
             gameOverController.GameOver();
