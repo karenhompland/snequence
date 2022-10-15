@@ -28,10 +28,11 @@ public class InitiateBoard : MonoBehaviour
     public int foodInterval = 3;
     public int powerUpsInterval = 30;
     public int bombInterval = 45;
-    public int minDistanceGameObject = 5;
 
     private List<Material> Materials = new List<Material>();
     private List<GameObject> PowerUps = new List<GameObject>();
+    private List<GameObject> ObjectsOnBoard = new List<GameObject>();
+
 
     public GameObject SequenceObject;
     private SequenceController sequenceController;
@@ -87,24 +88,72 @@ public class InitiateBoard : MonoBehaviour
 
     }
 
-    private Vector3 placeObject() {
+    private Vector3 getRandomVector(){
         Bounds bounds = this.gridArea.bounds;
-        bool distOk = true;
         float x = Random.Range(bounds.min.x, bounds.max.x);
         float z = Random.Range(bounds.min.z, bounds.max.z);
+        Vector3 position = new Vector3(Mathf.Round(x), 0.0f, Mathf.Round(z));
+        return position;
+     }
 
-        GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
-        foreach(GameObject obj in allObjects){
-            float dist = Vector3.Distance(new Vector3(Mathf.Round(x),0.0f, Mathf.Round(z)), obj.transform.position);
-            if (dist < minDistanceGameObject) {
-                distOk = false;   
-            } 
-        }
+    private Vector3 placeObject() {
+        return getRandomVector();
+        // Bounds bounds = this.gridArea.bounds;
+        // float x = Random.Range(bounds.min.x, bounds.max.x);
+        // float z = Random.Range(bounds.min.z, bounds.max.z);
+        // Vector3 position = new Vector3(Mathf.Round(x), 0.0f, Mathf.Round(z));
+        // bool positionFound = false;
+        // bool positionOk = true;
+        // int allowedDist = 5;
+        // Vector3 vector = new Vector3(0,0,0);
+        // // Vector3 position = getRandomVector();
 
-        if (!distOk) {
-            placeObject();
-        }
-        return new Vector3(Mathf.Round(x),0.0f, Mathf.Round(z)); 
+        // while (positionFound == false){
+        //     Vector3 position = getRandomVector();
+        //     foreach(GameObject obj in this.ObjectsOnBoard) {
+        //         float dist = Vector3.Distance(position, obj.transform.position);
+        //         Debug.Log(dist);
+        //         if (dist < allowedDist) {
+        //             positionOk = false;
+        //             break;
+        //         }
+        //     }
+        //     if (positionOk == true) {
+        //         positionFound = true;
+        //         vector = position;
+        //     }
+        // }
+        
+        // return vector;
+
+        
+
+        // var sphereRadius = 10;
+       
+        // if (Physics.CheckSphere(position, sphereRadius)){
+        //     Debug.Log("collide");
+        //     position = getRandomVector();
+        // }
+          
+        // return position;
+
+        // GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
+        // bool distOk = true;
+        // int minDistanceGameObject = 5;
+        // foreach(GameObject obj in allObjects){
+        //     float dist = Vector3.Distance(position, obj.transform.position);
+        //     Debug.Log(dist);
+        //     if (dist < minDistanceGameObject) {
+        //         distOk = false;   
+        //     } 
+        // }
+        // if (distOk) {
+        //     return position;
+        // }
+        // else {
+        //     return placeObject();
+        // }
+        
     }
 
     private void newFood() {
@@ -112,7 +161,7 @@ public class InitiateBoard : MonoBehaviour
         GameObject food = Instantiate(foodPrefab);
         int MaterialIndex;
         int random = Rnd.Next(0,2);
-        Debug.Log(random);
+        // Debug.Log(random);
         if (random == 0) {
             MaterialIndex = sequenceController.GetNextSequenceObjectIndex();
         }
@@ -122,6 +171,7 @@ public class InitiateBoard : MonoBehaviour
 
         food.GetComponent<MeshRenderer> ().material = Materials[MaterialIndex];
         food.transform.position = position;
+        ObjectsOnBoard.Add(food);
     }
 
     private void newBomb(){
@@ -129,18 +179,23 @@ public class InitiateBoard : MonoBehaviour
         GameObject bomb = Instantiate(Bomb);
         bomb.transform.Rotate(0,0,-40);
         bomb.transform.position = position;
-
+        ObjectsOnBoard.Add(bomb);
     }
 
     private void newPowerUp(){
         Vector3 position = placeObject();
         GameObject powerUp = Instantiate(PowerUps[Rnd.Next(0, PowerUps.Count)]);
         powerUp.transform.position = position;
+        ObjectsOnBoard.Add(powerUp);
      }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void removeGameObject(GameObject gameObject) {
+        ObjectsOnBoard.Remove(gameObject);
     }
 }

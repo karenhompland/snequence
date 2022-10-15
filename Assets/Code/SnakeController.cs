@@ -28,8 +28,12 @@ public class SnakeController : MonoBehaviour
 
     public GameObject SoundEffects;
     private SoundEffects soundEffectsController;
+
     public GameObject GameOverController;
     private GameOverController gameOverController;
+
+    public GameObject InitiateBoard;
+    private InitiateBoard initiateBoardController;
 
     private bool BodyTimeOut=false;
     private int BodyTimeOutCounter;
@@ -43,6 +47,7 @@ public class SnakeController : MonoBehaviour
         heartController=HeartObject.GetComponent<HeartController>();
         soundEffectsController=SoundEffects.GetComponent<SoundEffects>();
         gameOverController = GameOverController.GetComponent<GameOverController>();
+        initiateBoardController = InitiateBoard.GetComponent<InitiateBoard>();
         ResetState();
         
     }
@@ -161,6 +166,7 @@ public class SnakeController : MonoBehaviour
             }
             Destroy(other.gameObject);
         }
+        initiateBoardController.removeGameObject(other.gameObject);
     }
 
     private void GrowSnake(Material color) {

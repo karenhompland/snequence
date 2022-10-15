@@ -27,6 +27,9 @@ public class SequenceController : MonoBehaviour
     public GameObject SoundEffects;
     private SoundEffects soundEffectsController;
 
+    public GameObject GameOverController;
+    private GameOverController gameOverController;
+
     public int SequenceLength = 3;
 
     public int SetDuration;
@@ -47,6 +50,8 @@ public class SequenceController : MonoBehaviour
         progress=0;
         scoreController=ScoreObject.GetComponent<ScoreController>();
         soundEffectsController=SoundEffects.GetComponent<SoundEffects>();
+        gameOverController = GameOverController.GetComponent<GameOverController>();
+
         Duration=SetDuration;
         Being(Duration);
         NewSequence();
@@ -162,14 +167,14 @@ public class SequenceController : MonoBehaviour
 
     private void OnTimeEnd(){
         soundEffectsController.PlayGameOver();
-        //Lyd
+        gameOverController.GameOver();
     }
 
     private void FinishedSequence(){
         scoreController.UpdateScore(100);
         NewSequence();
         soundEffectsController.PlaySequenzeComplete();
-        Duration=SetDuration;
+        AddTime(SetDuration);
     }
 
     
