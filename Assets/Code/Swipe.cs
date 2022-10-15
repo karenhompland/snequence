@@ -35,25 +35,21 @@ public class Swipe : MonoBehaviour
                 //swipe upwards
                 if(swipe.y > 0&&swipe.x > -0.5f&&swipe.x < 0.5f)
                 {
-                    Debug.Log("up swipe");
                     return "up";
                 }
                 //swipe down
                 if(swipe.y < 0&&swipe.x > -0.5f&&swipe.x < 0.5f)
                 {
-                    Debug.Log("down swipe");
                     return "down";
                 }
                 //swipe left
                 if(swipe.x < 0&&swipe.y > -0.5f&&swipe.y < 0.5f)
                 {
-                    Debug.Log("left swipe");
                     return "left";
                 }
                 //swipe right
                 if(swipe.x > 0 &&swipe.y > -0.5f &&swipe.y < 0.5f)
                 {
-                    Debug.Log("right swipe");
                     return "right";
                 }
 
