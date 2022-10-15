@@ -112,7 +112,6 @@ public class InitiateBoard : MonoBehaviour
         GameObject food = Instantiate(foodPrefab);
         int MaterialIndex;
         int random = Rnd.Next(0,2);
-        Debug.Log(random);
         if (random == 0) {
             MaterialIndex = sequenceController.GetNextSequenceObjectIndex();
         }
