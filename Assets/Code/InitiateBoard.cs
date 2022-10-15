@@ -33,16 +33,22 @@ public class InitiateBoard : MonoBehaviour
     private List<Material> Materials = new List<Material>();
     private List<GameObject> PowerUps = new List<GameObject>();
 
+    public GameObject SequenceObject;
+    private SequenceController sequenceController;
+
     private static System.Random Rnd = new System.Random();
 
     // Start is called before the first frame update
     void Start()
     {
-        Materials.Add(PinkMaterial);
+        sequenceController=SequenceObject.GetComponent<SequenceController>();
+        
         Materials.Add(OrangeMaterial);
-        Materials.Add(BlueMaterial);
-        Materials.Add(PurpleMaterial);
         Materials.Add(YellowMaterial);
+        Materials.Add(PinkMaterial);
+        Materials.Add(PurpleMaterial);
+        Materials.Add(BlueMaterial);
+        
 
         PowerUps.Add(Star);
         PowerUps.Add(Heart);
@@ -104,10 +110,17 @@ public class InitiateBoard : MonoBehaviour
     private void newFood() {
         Vector3 position = placeObject();
         GameObject food = Instantiate(foodPrefab);
-        int color = Rnd.Next(0, Materials.Count);
+        int MaterialIndex;
+        int random = Rnd.Next(0,2);
+        if (random == 0) {
+            MaterialIndex = sequenceController.GetNextSequenceObjectIndex();
+        }
+        else{ 
+            MaterialIndex = Rnd.Next(0,Materials.Count); 
+        }
 
-        food.GetComponent<MeshRenderer> ().material = Materials[color];
-        food.transform.position = position; 
+        food.GetComponent<MeshRenderer> ().material = Materials[MaterialIndex];
+        food.transform.position = position;
     }
 
     private void newBomb(){
