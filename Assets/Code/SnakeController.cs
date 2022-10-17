@@ -136,18 +136,15 @@ public class SnakeController : MonoBehaviour
         }
         if (other.tag == "Obstacle"){
             ResetState();
-            soundEffectsController.PlayGameOver();
             gameOverController.GameOver();
         }
         if (other.tag == "Body" && !BodyTimeOut){
             ResetState();
-            soundEffectsController.PlayGameOver();
             gameOverController.GameOver();
         }
         if (other.tag == "Bomb") {
             if(extraLives==0){
                 ResetState();
-                soundEffectsController.PlayGameOver();
                 gameOverController.GameOver();
             }
             else {
