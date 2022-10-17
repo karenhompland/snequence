@@ -166,7 +166,7 @@ public class SnakeController : MonoBehaviour
             }
             Destroy(other.gameObject);
         }
-        initiateBoardController.removeGameObject(other.gameObject);
+        initiateBoardController.removeGameObject(other.transform.position);
     }
 
     private void GrowSnake(Material color) {

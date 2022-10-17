@@ -31,7 +31,7 @@ public class InitiateBoard : MonoBehaviour
 
     private List<Material> Materials = new List<Material>();
     private List<GameObject> PowerUps = new List<GameObject>();
-    private List<GameObject> ObjectsOnBoard = new List<GameObject>();
+    private List<Vector3> ObjectsOnBoard = new List<Vector3>();
 
 
     public GameObject SequenceObject;
@@ -98,6 +98,7 @@ public class InitiateBoard : MonoBehaviour
 
     private Vector3 placeObject() {
         return getRandomVector();
+        
         // Bounds bounds = this.gridArea.bounds;
         // float x = Random.Range(bounds.min.x, bounds.max.x);
         // float z = Random.Range(bounds.min.z, bounds.max.z);
@@ -171,7 +172,7 @@ public class InitiateBoard : MonoBehaviour
 
         food.GetComponent<MeshRenderer> ().material = Materials[MaterialIndex];
         food.transform.position = position;
-        ObjectsOnBoard.Add(food);
+        ObjectsOnBoard.Add(food.transform.position);
     }
 
     private void newBomb(){
@@ -179,14 +180,14 @@ public class InitiateBoard : MonoBehaviour
         GameObject bomb = Instantiate(Bomb);
         bomb.transform.Rotate(0,0,-40);
         bomb.transform.position = position;
-        ObjectsOnBoard.Add(bomb);
+        ObjectsOnBoard.Add(bomb.transform.position);
     }
 
     private void newPowerUp(){
         Vector3 position = placeObject();
         GameObject powerUp = Instantiate(PowerUps[Rnd.Next(0, PowerUps.Count)]);
         powerUp.transform.position = position;
-        ObjectsOnBoard.Add(powerUp);
+        ObjectsOnBoard.Add(powerUp.transform.position);
      }
 
     // Update is called once per frame
@@ -195,7 +196,7 @@ public class InitiateBoard : MonoBehaviour
         
     }
 
-    public void removeGameObject(GameObject gameObject) {
-        ObjectsOnBoard.Remove(gameObject);
+    public void removeGameObject(Vector3 position) {
+        ObjectsOnBoard.Remove(position);
     }
 }
