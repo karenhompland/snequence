@@ -215,11 +215,9 @@ public class SnakeController : MonoBehaviour
         
     }
 
-    public void StarModeOn(){
-
+    public void NextLevel() {
+        MoveSpeed = currentSpeed*1.2f; 
     }
 
-    public void StarModeOff(){
 
-    }
 }
