@@ -4,7 +4,12 @@
 
 Snequence is a mobile game developed in Unity for the subject CSC4027Z Game Design at UCT.
 
-Add Game Images
+## Game Screenshots
+
+![start screen](https://user-images.githubusercontent.com/70148072/196153099-c334d428-5472-4c06-8350-bbf44f1201f0.png)
+
+![game screen](https://user-images.githubusercontent.com/70148072/196153372-65d503a0-7e1b-4335-9fff-6492dfea904f.png)
+
 
 ## Building and running with Xcode simulator
 
@@ -76,4 +81,4 @@ Additionally:
 
 **Solveig Aune:** Game element design
 
-Game elements are designed with Blender and texturizd in Unity.
+Game elements are designed with Blender and texturized in Unity.
