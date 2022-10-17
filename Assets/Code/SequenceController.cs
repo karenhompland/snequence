@@ -30,6 +30,9 @@ public class SequenceController : MonoBehaviour
     public GameObject GameOverController;
     private GameOverController gameOverController;
 
+    public GameObject SnakeObject;
+    private SnakeController snakeController;
+
     public int SequenceLength = 3;
 
     public int SetDuration;
@@ -51,6 +54,8 @@ public class SequenceController : MonoBehaviour
         scoreController=ScoreObject.GetComponent<ScoreController>();
         soundEffectsController=SoundEffects.GetComponent<SoundEffects>();
         gameOverController = GameOverController.GetComponent<GameOverController>();
+        snakeController=SnakeObject.GetComponent<SnakeController>();
+
         Duration=SetDuration;
         Being(Duration);
         NewSequence();
@@ -172,6 +177,7 @@ public class SequenceController : MonoBehaviour
         NewSequence();
         soundEffectsController.PlaySequenzeComplete();
         AddTime(SetDuration);
+        snakeController.NextLevel();
     }
 
     

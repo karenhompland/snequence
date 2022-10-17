@@ -5818,7 +5818,8 @@ MonoBehaviour:
   ScoreObject: {fileID: 1146805595}
   SoundEffects: {fileID: 1821762798}
   GameOverController: {fileID: 1455009353}
-  SequenceLength: 5
+  SnakeObject: {fileID: 754978419}
+  SequenceLength: 2
   SetDuration: 20
   uiFill: {fileID: 2054890602}
   uiText: {fileID: 197914265}

@@ -7,7 +7,6 @@ public class InitiateBoard : MonoBehaviour
     public BoxCollider gridArea;
     public GameObject foodPrefab;
 
-    public GameObject Star;
     public GameObject Heart;
     public GameObject DoubleScore;
     public GameObject Time;
@@ -50,7 +49,6 @@ public class InitiateBoard : MonoBehaviour
         Materials.Add(BlueMaterial);
         
 
-        PowerUps.Add(Star);
         PowerUps.Add(Heart);
         PowerUps.Add(DoubleScore);
         PowerUps.Add(Time);
@@ -69,7 +67,7 @@ public class InitiateBoard : MonoBehaviour
 
     private void initaiteFood(){
         for (int i = 0; i < initialFood; i++) {
-            newFood();
+            RandomFood();
        }
     }
 
@@ -93,18 +91,26 @@ public class InitiateBoard : MonoBehaviour
         float x = Random.Range(bounds.min.x, bounds.max.x);
         float z = Random.Range(bounds.min.z, bounds.max.z);
 
-        GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
-        foreach(GameObject obj in allObjects){
-            float dist = Vector3.Distance(new Vector3(Mathf.Round(x),0.0f, Mathf.Round(z)), obj.transform.position);
-            if (dist < minDistanceGameObject) {
-                distOk = false;   
-            } 
-        }
+        // GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
+        // foreach(GameObject obj in allObjects){
+        //     float dist = Vector3.Distance(new Vector3(Mathf.Round(x),0.0f, Mathf.Round(z)), obj.transform.position);
+        //     if (dist < minDistanceGameObject) {
+        //         distOk = false;   
+        //     } 
+        // }
 
-        if (!distOk) {
-            placeObject();
-        }
+        // if (!distOk) {
+        //     placeObject();
+        // }
         return new Vector3(Mathf.Round(x),0.0f, Mathf.Round(z)); 
+    }
+
+    public void RandomFood(){
+        Vector3 position = placeObject();
+        GameObject food = Instantiate(foodPrefab);
+        int MaterialIndex = Rnd.Next(0,5);
+        food.GetComponent<MeshRenderer> ().material = Materials[MaterialIndex];
+        food.transform.position = position;
     }
 
     private void newFood() {
