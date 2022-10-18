@@ -147,6 +147,7 @@ public class SnakeController : MonoBehaviour
         if (other.tag == "Bomb") {
             if(extraLives==0){
                 StartCoroutine(AnimateBomb(other));
+                soundEffectsController.PlayBomb();
             }
             else {
                 extraLives--;

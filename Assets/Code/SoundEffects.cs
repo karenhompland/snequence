@@ -13,6 +13,11 @@ public class SoundEffects : MonoBehaviour
     public AudioSource PowerUp;
     public AudioSource GameOver;
     public AudioSource TimeRunningOut;
+    public AudioSource Bomb;
+
+    public void PlayBomb(){
+        Bomb.Play();
+    }
 
     public void PlayTimeRunningOut(){
         TimeRunningOut.Play();
