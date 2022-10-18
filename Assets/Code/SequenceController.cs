@@ -152,12 +152,16 @@ public class SequenceController : MonoBehaviour
     public void AddTime(int Seconds) {
         Duration+=Seconds;
         RemainingDuration+=Seconds;
+        if (RemainingDuration > 3) {
+            uiFill.color=new Color(0.04023647f, 1f, 0f, 1f);
+        }
     }
 
     private IEnumerator UpdateTimer() {
         while(RemainingDuration >= 0){
             if (RemainingDuration == 3) {
                 soundEffectsController.PlayTimeRunningOut();
+                uiFill.color=new Color(1f, 0.2235294f, 0f, 1f);
             }
             uiText.text = $"{RemainingDuration}";
             uiFill.fillAmount = Mathf.InverseLerp(0,Duration,RemainingDuration);

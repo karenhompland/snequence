@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7506943084206056178}
   - component: {fileID: 5749675879198201400}
   - component: {fileID: -687115892731761924}
+  - component: {fileID: -5451047893265625456}
   m_Layer: 0
   m_Name: slo-mo
   m_TagString: Slower
@@ -97,3 +98,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.01098, y: 0.0054652714, z: 0.0024000003}
   m_Center: {x: -0.00584, y: 0.0035399995, z: -6.720427e-11}
+--- !u!95 &-5451047893265625456
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6109713230367700973}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fcd10ce8185294b93a294fa3e6e665ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
