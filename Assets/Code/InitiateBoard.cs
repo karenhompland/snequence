@@ -61,7 +61,7 @@ public class InitiateBoard : MonoBehaviour
 
         InvokeRepeating ("newFood", 1, foodInterval);
         InvokeRepeating ("newPowerUp", 5, powerUpsInterval);
-        InvokeRepeating ("newBomb", 20, bombInterval);
+        InvokeRepeating ("newBomb", 3, bombInterval);
 
     }
 
