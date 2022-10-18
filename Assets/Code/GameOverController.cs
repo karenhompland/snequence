@@ -14,7 +14,7 @@ public class GameOverController : MonoBehaviour
     }
 
     public void GameOver(){
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
         soundEffectsController.PlayGameOver();
     }
 

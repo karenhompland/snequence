@@ -37,6 +37,8 @@ public class SnakeController : MonoBehaviour
     public GameObject Swipe;
     private Swipe swipeController;
 
+    public ParticleSystem Boom;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -136,19 +138,16 @@ public class SnakeController : MonoBehaviour
         }
         if (other.tag == "Obstacle"){
             ResetState();
-            soundEffectsController.PlayGameOver();
             gameOverController.GameOver();
         }
         if (other.tag == "Body" && !BodyTimeOut){
             ResetState();
-            soundEffectsController.PlayGameOver();
             gameOverController.GameOver();
         }
         if (other.tag == "Bomb") {
             if(extraLives==0){
-                ResetState();
-                soundEffectsController.PlayGameOver();
-                gameOverController.GameOver();
+                StartCoroutine(AnimateBomb(other));
+                soundEffectsController.PlayBomb();
             }
             else {
                 extraLives--;
@@ -157,6 +156,16 @@ public class SnakeController : MonoBehaviour
             }
             Destroy(other.gameObject);
         }
+    }
+
+    private IEnumerator AnimateBomb(Collider other){
+        Vector3 position = new Vector3(other.transform.position.x, 3, other.transform.position.z);
+        Instantiate(Boom, position, other.transform.rotation);
+        currentSpeed=0;
+        Boom.Play();
+        yield return new WaitForSeconds(2);
+        ResetState();
+        gameOverController.GameOver();
     }
 
     private void GrowSnake(Material color) {
@@ -218,11 +227,9 @@ public class SnakeController : MonoBehaviour
         
     }
 
-    public void StarModeOn(){
-
+    public void NextLevel() {
+        MoveSpeed = currentSpeed*1.2f; 
     }
 
-    public void StarModeOff(){
 
-    }
 }

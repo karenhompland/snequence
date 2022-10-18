@@ -30,6 +30,8 @@ public class SequenceController : MonoBehaviour
     public GameObject GameOverController;
     private GameOverController gameOverController;
 
+    public GameObject SnakeObject;
+    private SnakeController snakeController;
 
     public int SequenceLength = 3;
 
@@ -52,6 +54,7 @@ public class SequenceController : MonoBehaviour
         scoreController=ScoreObject.GetComponent<ScoreController>();
         soundEffectsController=SoundEffects.GetComponent<SoundEffects>();
         gameOverController = GameOverController.GetComponent<GameOverController>();
+        snakeController=SnakeObject.GetComponent<SnakeController>();
         Duration=SetDuration;
         Being(Duration);
         NewSequence();
@@ -148,13 +151,16 @@ public class SequenceController : MonoBehaviour
     public void AddTime(int Seconds) {
         Duration+=Seconds;
         RemainingDuration+=Seconds;
+        if (RemainingDuration > 3) {
+            uiFill.color=new Color(0.04023647f, 1f, 0f, 1f);
+        }
     }
 
     private IEnumerator UpdateTimer() {
         while(RemainingDuration >= 0){
             if (RemainingDuration == 3) {
                 soundEffectsController.PlayTimeRunningOut();
-                // rød tekst
+                uiFill.color=new Color(1f, 0.2235294f, 0f, 1f);
             }
             uiText.text = $"{RemainingDuration}";
             uiFill.fillAmount = Mathf.InverseLerp(0,Duration,RemainingDuration);
@@ -166,7 +172,6 @@ public class SequenceController : MonoBehaviour
     }
 
     private void OnTimeEnd(){
-        soundEffectsController.PlayGameOver();
         gameOverController.GameOver();
     }
 
@@ -175,6 +180,7 @@ public class SequenceController : MonoBehaviour
         NewSequence();
         soundEffectsController.PlaySequenzeComplete();
         AddTime(SetDuration);
+        snakeController.NextLevel();
     }
 
     

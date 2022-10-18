@@ -21,12 +21,10 @@ public class PowerUpsController : MonoBehaviour
 
     private int slowerTimer=0;
     private int fasterTimer=0;
-    private int starTimer=0;
     private int doublePointsTimer=0;
 
     private bool slowerHasReset=true;
     private bool fasterHasReset=true;
-    private bool starHasReset=true;
     private bool doublePointsHasReset=true;
 
 
@@ -60,14 +58,7 @@ public class PowerUpsController : MonoBehaviour
             fasterHasReset=true;
             fasterTimer=0;
         }
-        if (starTimer>0){
-            starTimer--;
-        }
-        else if (starTimer<=0 && !starHasReset){
-            snakeController.StarModeOff();
-            starHasReset=true;
-            starTimer=0;
-        }
+        
         if (doublePointsTimer>0){
             doublePointsTimer--;
         }
@@ -103,12 +94,6 @@ public class PowerUpsController : MonoBehaviour
         if (other.tag == "Heart") {
             Destroy(other.gameObject);
             snakeController.ExtraLife();
-        }
-        if (other.tag == "Star") {
-            Destroy(other.gameObject);
-            snakeController.StarModeOn();
-            starTimer+=PowerUpDuration;
-            starHasReset=false;
         }
         if (other.tag == "DoublePoints") {
             Destroy(other.gameObject);
