@@ -14,10 +14,10 @@ Snequence is a mobile game developed in Unity for the subject CSC4027Z Game Desi
 ## Building and running with Xcode simulator
 
 It is reccommended to run the game using the IOS platform device in Unity, as opposed to the game engine one, as the game is designed to be manouvred with touch functionality. The snake won´t be able to be swiped if it is not run with a simulator engine.
-Make sure you hae the IOS platform downloaded in unity. This can be done from Unity Hub, under Installs.
+Make sure you have the IOS platform downloaded in unity. This can be done from Unity Hub, under Installs.
 After cloning the repo, open the game in Unity engine.
 Open Build Settings (cmd shift B) and select IOS. Go to you project settings and select "other settings".
-Underneath "target SDK", make Simulator SDK is selected. It should be already in the project settings from the pull.
+Underneath "target SDK", make sure Simulator SDK is selected. It should be already in the project settings from the pull.
 
 After building, open the hierarchy in Xcode and select unity-iphone. Go to build settings and make sure the ENABLE_BITCODE field is set to 'NO'.
 
