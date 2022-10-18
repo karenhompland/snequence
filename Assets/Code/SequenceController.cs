@@ -55,7 +55,6 @@ public class SequenceController : MonoBehaviour
         soundEffectsController=SoundEffects.GetComponent<SoundEffects>();
         gameOverController = GameOverController.GetComponent<GameOverController>();
         snakeController=SnakeObject.GetComponent<SnakeController>();
-
         Duration=SetDuration;
         Being(Duration);
         NewSequence();
