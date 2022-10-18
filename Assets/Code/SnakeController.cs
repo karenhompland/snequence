@@ -159,7 +159,7 @@ public class SnakeController : MonoBehaviour
     }
 
     private IEnumerator AnimateBomb(Collider other){
-        Vector3 position = new Vector3(other.transform.position.x, 2, other.transform.position.z);
+        Vector3 position = new Vector3(other.transform.position.x, 3, other.transform.position.z);
         Instantiate(Boom, position, other.transform.rotation);
         currentSpeed=0;
         Boom.Play();

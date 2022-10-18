@@ -3712,7 +3712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155628c145ce8475085cf7a3a983d184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Heart: {fileID: 5808559844191106465, guid: 1f5a0a8a3777340159b60a8080e0164d, type: 3}
+  Heart: {fileID: 5808559844191106465, guid: d5f271cc949574caab2d0714f86dcd84, type: 3}
   GrayMaterial: {fileID: 2100000, guid: ad6e9e97c1c6a474dbf6d744b3ca84f4, type: 2}
   PinkMaterial: {fileID: 2100000, guid: 00228c47e29e54ea39dc5b4b1e629c06, type: 2}
 --- !u!1001 &533679419
@@ -5138,7 +5138,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 89.116, y: -30, z: 0}
 --- !u!1 &719444752 stripped
 GameObject:
@@ -7274,7 +7274,7 @@ RectTransform:
   - {fileID: 1702521213}
   - {fileID: 1146805596}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7880,6 +7880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dba2ae7009d14e88bb8e1374ded104f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Symbol: {fileID: 7124738717063204358, guid: f69cee5726a05428e9bdea08f6433e22, type: 3}
   ScoreText: {fileID: 1146805598}
 --- !u!114 &1146805598
 MonoBehaviour:
@@ -12346,7 +12347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridArea: {fileID: 1815940493}
-  foodPrefab: {fileID: 5032415365332474176, guid: 77f4ce66d5af34986abde5db014bccb8, type: 3}
+  foodPrefab: {fileID: 5032415365332474176, guid: b0cd12717dafe4add8f70c068c3cf1b1, type: 3}
   Heart: {fileID: 5808559844191106465, guid: 1f5a0a8a3777340159b60a8080e0164d, type: 3}
   DoubleScore: {fileID: 7124738717063204358, guid: f69cee5726a05428e9bdea08f6433e22, type: 3}
   Time: {fileID: 1610285102751063109, guid: 3519e73010f924cd99b645267943bccd, type: 3}
@@ -12363,7 +12364,7 @@ MonoBehaviour:
   initialBomb: 5
   foodInterval: 5
   powerUpsInterval: 7
-  bombInterval: 2
+  bombInterval: 15
   minDistanceGameObject: 3
   SequenceObject: {fileID: 948261655}
 --- !u!65 &1744106641
@@ -12510,7 +12511,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1758851668
 PrefabInstance:
@@ -15434,7 +15435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7515069025742856351, guid: 73d780516876848278a22578016a292d, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7515069025742856351, guid: 73d780516876848278a22578016a292d, type: 3}
       propertyPath: m_LocalScale.x
@@ -15587,7 +15588,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8959413693841315145, guid: 26d758d847f014776a0066df1fbe2aa4, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8959413693841315145, guid: 26d758d847f014776a0066df1fbe2aa4, type: 3}
       propertyPath: m_LocalScale.x
