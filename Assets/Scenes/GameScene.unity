@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17277342, g: 0.21589848, b: 0.29783285, a: 1}
+  m_IndirectSpecularColor: {r: 0.17277317, g: 0.21589825, b: 0.29783264, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5165,6 +5165,7 @@ MonoBehaviour:
   SoundEffects: {fileID: 1821762798}
   GameOverController: {fileID: 1455009353}
   Swipe: {fileID: 583195400}
+  Boom: {fileID: 5599582377437194246, guid: 0af2b5f2aa2ff47ad83a4ca4c93375d6, type: 3}
 --- !u!54 &754978421
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12103,10 +12104,10 @@ MonoBehaviour:
   YellowMaterial: {fileID: 2100000, guid: 228a7d337554147358ca5dee1e228602, type: 2}
   initialFood: 6
   initialPowerUps: 1
-  initialBomb: 1
+  initialBomb: 5
   foodInterval: 5
   powerUpsInterval: 7
-  bombInterval: 15
+  bombInterval: 2
   minDistanceGameObject: 3
   SequenceObject: {fileID: 948261655}
 --- !u!65 &1744106641

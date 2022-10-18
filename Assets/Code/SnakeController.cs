@@ -37,6 +37,8 @@ public class SnakeController : MonoBehaviour
     public GameObject Swipe;
     private Swipe swipeController;
 
+    public ParticleSystem Boom;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -144,8 +146,7 @@ public class SnakeController : MonoBehaviour
         }
         if (other.tag == "Bomb") {
             if(extraLives==0){
-                ResetState();
-                gameOverController.GameOver();
+                StartCoroutine(AnimateBomb(other));
             }
             else {
                 extraLives--;
@@ -154,6 +155,16 @@ public class SnakeController : MonoBehaviour
             }
             Destroy(other.gameObject);
         }
+    }
+
+    private IEnumerator AnimateBomb(Collider other){
+        Vector3 position = new Vector3(other.transform.position.x, 2, other.transform.position.z);
+        Instantiate(Boom, position, other.transform.rotation);
+        currentSpeed=0;
+        Boom.Play();
+        yield return new WaitForSeconds(2);
+        ResetState();
+        gameOverController.GameOver();
     }
 
     private void GrowSnake(Material color) {
