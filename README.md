@@ -8,7 +8,7 @@ Snequence is a mobile game developed in Unity for the subject CSC4027Z Game Desi
 
 ![start screen](https://user-images.githubusercontent.com/70148072/196153099-c334d428-5472-4c06-8350-bbf44f1201f0.png)
 
-![game screen]((https://user-images.githubusercontent.com/96382311/196655873-d495ce2f-590d-4477-a3b5-006bf3935e93.png))
+![game screen](https://user-images.githubusercontent.com/96382311/196655873-d495ce2f-590d-4477-a3b5-006bf3935e93.png)
 
 
 ## Building and running with Xcode simulator
