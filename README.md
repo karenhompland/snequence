@@ -13,11 +13,18 @@ Snequence is a mobile game developed in Unity for the subject CSC4027Z Game Desi
 
 ## Building and running with Xcode simulator
 
-It is reccommended to run the game using the IOS platform device in Unity, as opposed to the game engine one, as the game is designed to be manouvred with touch functionality. The snake won´t be able to be swiped if it is not run with a simulator engine.
+### Testing in Unity
+
+For testing, the game needs to be run using the IOS platform device in Unity, as opposed to the game engine one. This is to accommodate the swiping functionality, and to ensure thecanvas fits the screen. The snake won´t be able to be swiped if it is not run with a simulator engine. It can also be tested with the Unity Remote 5 app.
+
+### Building
+
+It is truly reccommended to build the game with the IOS platform and test it in Xcode for a better experience. This is due to the dimensions of the game being optimized for mobile screens. 
+
 Make sure you have the IOS platform downloaded in unity. This can be done from Unity Hub, under Installs.
 After cloning the repo, open the game in Unity engine.
-Open Build Settings (cmd shift B) and select IOS. Go to you project settings and select "other settings".
-Underneath "target SDK", make sure Simulator SDK is selected. It should be already in the project settings from the pull.
+Open Build Settings (cmd shift B) and select IOS. Go to you project settings and select "other settings". 
+Underneath "target SDK", make sure Simulator SDK is selected. (It should be already in the project settings from the pull, but make sure just in case)
 
 After building, open the hierarchy in Xcode and select unity-iphone. Go to build settings and make sure the ENABLE_BITCODE field is set to 'NO'.
 
@@ -84,7 +91,7 @@ Additionally:
 Game elements are designed with Blender and texturized in Unity.
 
 ## Sound Effects
-### Our sound effect are downloaded from Pixabay
+### Our sound effects are downloaded from Pixabay
 
 **Sequence Complete**: short-success-sound-glockenspiel-treasure-video-game-6346.mp3
 
