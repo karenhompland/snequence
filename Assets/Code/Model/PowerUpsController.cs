@@ -37,9 +37,7 @@ public class PowerUpsController : MonoBehaviour
         soundEffectsController=SoundEffects.GetComponent<SoundEffects>();
     }
 
-    //TODO: show timer for all powerups
 
-    // Update is called once per frame
     void Update()
     {
         if (slowerTimer>0){

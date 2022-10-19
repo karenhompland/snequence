@@ -56,12 +56,10 @@ public class InitiateBoard : MonoBehaviour
         PowerUps.Add(Slower);
 
         initaiteFood();
-        //initiatePowerUps();
-        //initiateBombs();
 
         InvokeRepeating ("newFood", 1, foodInterval);
         InvokeRepeating ("newPowerUp", 5, powerUpsInterval);
-        InvokeRepeating ("newBomb", 3, bombInterval);
+        InvokeRepeating ("newBomb", 10, bombInterval);
 
     }
 
@@ -87,21 +85,8 @@ public class InitiateBoard : MonoBehaviour
 
     private Vector3 placeObject() {
         Bounds bounds = this.gridArea.bounds;
-        bool distOk = true;
         float x = Random.Range(bounds.min.x, bounds.max.x);
-        float z = Random.Range(bounds.min.z, bounds.max.z);
-
-        // GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
-        // foreach(GameObject obj in allObjects){
-        //     float dist = Vector3.Distance(new Vector3(Mathf.Round(x),0.0f, Mathf.Round(z)), obj.transform.position);
-        //     if (dist < minDistanceGameObject) {
-        //         distOk = false;   
-        //     } 
-        // }
-
-        // if (!distOk) {
-        //     placeObject();
-        // }
+        float z = Random.Range(bounds.min.z, bounds.max.z);      
         return new Vector3(Mathf.Round(x),0.0f, Mathf.Round(z)); 
     }
 
@@ -143,9 +128,4 @@ public class InitiateBoard : MonoBehaviour
         powerUp.transform.position = position;
      }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

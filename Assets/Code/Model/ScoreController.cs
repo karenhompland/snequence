@@ -11,7 +11,6 @@ public class ScoreController : MonoBehaviour
     private int Score;
     private bool doubleScore;
     private GameObject symbol;
-    // Start is called before the first frame update
     void Start()
     {
         doubleScore=false;
@@ -23,11 +22,7 @@ public class ScoreController : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
     public void UpdateScore(int score){
         if (doubleScore) {
             Score+=2*score;
@@ -38,10 +33,6 @@ public class ScoreController : MonoBehaviour
         ScoreText.text=$"{Score}";
     }
 
-    public void GameOver(){
-        //save score
-        
-    }
 
     public void DoubleScore(){
         doubleScore=true;

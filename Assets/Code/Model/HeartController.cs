@@ -11,8 +11,6 @@ public class HeartController : MonoBehaviour
     private int hearts = 0;
     private List<GameObject> HeartsList = new List<GameObject>();
  
-
-
     public void addHeart() {
         hearts ++;
         HeartsList[hearts-1].GetComponent<MeshRenderer> ().material = PinkMaterial;
@@ -23,7 +21,6 @@ public class HeartController : MonoBehaviour
         HeartsList[hearts].GetComponent<MeshRenderer> ().material = GrayMaterial;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         
@@ -38,9 +35,5 @@ public class HeartController : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
 }

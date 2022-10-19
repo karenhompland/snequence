@@ -39,7 +39,6 @@ public class SnakeController : MonoBehaviour
 
     public ParticleSystem Boom;
 
-    // Start is called before the first frame update
     void Start()
     {
         currentSpeed = MoveSpeed;
@@ -52,7 +51,6 @@ public class SnakeController : MonoBehaviour
         ResetState();
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.position += transform.forward * currentSpeed * Time.deltaTime;
@@ -191,7 +189,6 @@ public class SnakeController : MonoBehaviour
     }
 
     private void ResetState(){
-        //scoreController.Start();
         for (int i = 0 ; i < BodyParts.Count ; i++) {
             Destroy(BodyParts[i].gameObject);
         }
@@ -199,9 +196,6 @@ public class SnakeController : MonoBehaviour
         
         AddTail();
 
-        for (int i = 0 ; i < initialSize ; i++) {
-            //GrowSnake(SeeThroughMaterial);
-        }
 
         this.transform.position = Vector3.zero;
     }
@@ -224,12 +218,10 @@ public class SnakeController : MonoBehaviour
             heartController.addHeart();
             soundEffectsController.PlayAddHeart();
         }
-        
     }
 
     public void NextLevel() {
         MoveSpeed = currentSpeed*1.2f; 
     }
-
 
 }

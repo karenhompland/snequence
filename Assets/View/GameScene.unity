@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17277317, g: 0.21589825, b: 0.29783264, a: 1}
+  m_IndirectSpecularColor: {r: 0.17277342, g: 0.21589848, b: 0.29783285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3931,7 +3931,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 013b6c7a9e6fb4eb98ca8b9b67d46517, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ecffd831743e745758915646b2c295a4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -6908,7 +6908,7 @@ MonoBehaviour:
   SoundEffects: {fileID: 1821762798}
   GameOverController: {fileID: 1455009353}
   SnakeObject: {fileID: 754978419}
-  SequenceLength: 2
+  SequenceLength: 5
   SetDuration: 20
   uiFill: {fileID: 2054890602}
   uiText: {fileID: 197914265}
