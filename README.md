@@ -96,7 +96,7 @@ Game elements are designed with Blender and texturized in Unity.
 
 **Eat and click** : click-21156.mp3
 
-**Bomb** : explosion-6055.mp3
+**Bomb** : failure-drum-sound-effect-2-7184.mp3
 
 ### Our background music is downloaded from Jamendo
 
