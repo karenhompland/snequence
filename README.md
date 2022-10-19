@@ -63,8 +63,13 @@ Makes the snake go faster for a short period of time.
 
 Makes the snake go slower for a short period of time.
 
-<img src="https://user-images.githubusercontent.com/70148072/196148793-54891d87-6e4f-448b-bb16-bf21c9b7ca8f.png" width="200"/>
+<img src="https://user-images.githubusercontent.com/70148072/196668739-5242486d-cea0-433e-97eb-ea8e5118cd54.png" width ="200"/>
 
+**Double points**
+
+Makes all points count as double for the time it is active.
+
+<img src="https://user-images.githubusercontent.com/70148072/196148793-54891d87-6e4f-448b-bb16-bf21c9b7ca8f.png" width="200"/>
 
 **Clock**
 
