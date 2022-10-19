@@ -82,3 +82,25 @@ Additionally:
 **Solveig Aune:** Game element design
 
 Game elements are designed with Blender and texturized in Unity.
+
+## Sound Effects
+### Our sound effect are downloaded from Pixabay
+
+**Sequence Complete**: short-success-sound-glockenspiel-treasure-video-game-6346.mp3
+
+**Game over** : negative_beeps-6008.mp3
+
+**Remove Heart** : glass-bottle-shatter-13847.mp3
+
+**Add Heart** : cartoon_wink_magic_sparkle-6896.mp3
+
+**Eat and click** : click-21156.mp3
+
+**Bomb** : explosion-6055.mp3
+
+### Our background music is downloaded from Jamendo
+
+**Background Music** : Blue Jay Studio - Video Game Background 3
+
+
+
